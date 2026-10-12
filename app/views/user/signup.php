@@ -7,7 +7,7 @@
 
 <div class="container">
     <h2>Créer un compte</h2>
-    <?php if ($message) echo "<p style='color:red;'>$message</p>"; ?>
+    <?php if ($message) echo "<p style='color:red;'>" . htmlspecialchars($message) . "</p>"; ?>
     <form action="register" method="post">
         <div class="form-group">
             <label for="prenom">prenom :</label>

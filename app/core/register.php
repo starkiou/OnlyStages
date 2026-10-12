@@ -3,7 +3,7 @@
 $com_nom =isset($_POST['nom']) ? trim($_POST['nom']) : '';
 $com_prenom =isset($_POST['prenom']) ? trim($_POST['prenom']) : '';
 $com_email  =isset($_POST['email']) ? trim($_POST['email']) : '';
-$com_mdp    =isset($_POST['password']) ? trim($_POST['password']) : '';
+$com_mdp    =isset($_POST['password']) ? $_POST['password'] : '';
 
 if (empty($com_prenom) || empty($com_email) || empty($com_nom) || empty($com_mdp) ) {
     echo "<script>alert('Veuillez remplir tous les champs obligatoires.'); window.history.back();</script>";
@@ -24,9 +24,11 @@ try{
         ':nom' => $com_nom,
         ':prenom' => $com_prenom,
         ':email' => $com_email,
-        ':password' => $com_mdp
+        ':password' => password_hash($com_mdp, PASSWORD_DEFAULT)
     ]);
 
+    session_regenerate_id(true);
+    $_SESSION['typecompte'] = 1;
     $_SESSION['user_id'] = $db->lastInsertId();
     $_SESSION['nom'] = $com_nom;
     $_SESSION['prenom'] = $com_prenom;
@@ -35,5 +37,6 @@ try{
     header('Location: home');
     exit;
 }catch (PDOException $e) {
-        die("Erreur de connexion : " . $e->getMessage());
+        error_log($e->getMessage());
+        die("Erreur lors de la création du compte.");
 }

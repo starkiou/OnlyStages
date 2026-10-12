@@ -10,24 +10,9 @@ if(!isset($_SESSION['typecompte'])){
     $_SESSION['typecompte']=0;
 }
 
-/*
-echo("<br>Url:</b><br>");
-var_dump($url);
-echo("<br><br>");
-*/
-
 define('ROOT_DIR', __DIR__ . DIRECTORY_SEPARATOR);
 
 require __DIR__ . '/app/core/config.php';
-/*
-echo("<br>Connexion:</b><br>");
-var_dump($db);
-echo("<br><br>");
-
-echo("<br>Session Data:</b><br>");
-var_dump($_SESSION);
-echo("<br><br>");
-*/
 
 switch (true) {
     //---------------PAGES PRINCIPALES--------------------//
@@ -67,6 +52,12 @@ switch (true) {
         exit;
     case ($url[0] === 'register'):
         require ROOT_DIR . 'app/core/register.php';
+        exit;
+
+    // Les imports modifient la base : réservés aux administrateurs
+    case (in_array($url[0], ['importationBDD', 'insertion'], true) && (int)$_SESSION['typecompte'] !== 3):
+        http_response_code(403);
+        echo json_encode(['error' => 'Accès non autorisé']);
         exit;
 
     case ($url[0] === 'importationBDD'):

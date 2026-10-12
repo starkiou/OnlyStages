@@ -155,7 +155,8 @@ try {
     $stmt = $db->query("SELECT * FROM ONL_LISTESTAGE ORDER BY LIS_ID DESC");
     $stages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (Exception $e) {
-    echo "<p style='color: red;'>Erreur lors de la récupération des stages : " . htmlspecialchars($e->getMessage()) . "</p>";
+    error_log($e->getMessage());
+    echo "<p style='color: red;'>Erreur lors de la récupération des stages.</p>";
     $stages = [];
 }
 ?>

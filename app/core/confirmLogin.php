@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         if ($email === $user['COM_EMAIL'] && password_verify($password, $user['COM_MOT_DE_PASSE'])) {
+            session_regenerate_id(true);
             $_SESSION['user_id'] = $user['COM_ID'];
             $_SESSION['email'] = $user['COM_EMAIL'];
             $_SESSION['prenom'] = $user['COM_PRENOM'];      
@@ -31,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
     } catch (PDOException $e) {
-        $_SESSION['error_message'] = "Erreur de connexion : " . $e->getMessage();
+        error_log($e->getMessage());
+        $_SESSION['error_message'] = "Erreur de connexion, réessayez plus tard.";
         header('Location: login');
         exit();
     }
