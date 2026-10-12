@@ -43,7 +43,6 @@ if (isset($_FILES['csv_file']) && $_FILES['csv_file']['error'] === 0) {
             while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
                 // S'assure qu'il y a bien 15 colonnes
                 if (count($data) < 14) continue;
-                echo "exec  !";
                 $stmt->execute([
                     trim($data[0]), // LIS_NOM
                     trim($data[1]), // LIS_PRENOM

@@ -1,4 +1,4 @@
-# OnlyStage
+# OnlyStages
 
 Un outil de recherche d'entreprises et de gestion de stages pour étudiants, développé en PHP, HTML, CSS et JavaScript. Trouvez vos stages et entreprises facilement !
 
@@ -59,7 +59,7 @@ Un outil de recherche d'entreprises et de gestion de stages pour étudiants, dé
 
 ---
 
-### ✅ Comptes de test inclus
+### ✅ Comptes de test inclus (démo locale uniquement)
 
 - **Administrateur** : email `ADMIN@ADMIN`, mot de passe `admin`
 - **Enseignant** : email `ENS@ENS`, mot de passe `ens`

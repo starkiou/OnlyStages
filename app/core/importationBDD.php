@@ -34,7 +34,7 @@ if (!$stmt) {
 // Insérer chaque ligne de données
 foreach ($data as $index => $row) {
     $siren = $row['siren'] ?? '';
-    $ent_date_creation = isset($row['date_creation']) ?? '';
+    $ent_date_creation = $row['date_creation'] ?? '';
     $ent_activite = $row['activite_principale'] ?? '';
     $ent_categorie = $row['categorie_entreprise'] ?? '';
     $ent_adresse = $row['adresse'] ?? '';
