@@ -54,7 +54,7 @@ Un outil de recherche d'entreprises et de gestion de stages pour étudiants, dé
 ### ⚠️ Important
 
 - La base utilise l'utilisateur MySQL par défaut `root` sans mot de passe (configuration XAMPP standard)
-- Si vous utilisez un autre serveur, modifiez `app/core/config.php` avec vos identifiants
+- Si vous utilisez un autre serveur, copiez `app/core/config.local.example.php` en `app/core/config.local.php` et mettez-y vos identifiants
 - Ne partagez pas vos identifiants de base de données publiquement
 
 ---
@@ -110,3 +110,12 @@ Ce projet a été réalisé dans le cadre d’un travail de groupe réunissant :
 - **SOREL Milo**
 
 **Projet réalisé dans le cadre d'un cours de développement web.**
+
+### 🙋 Mon rôle
+
+Ce dépôt est mon fork personnel du projet. J'ai travaillé sur la partie PHP avec Mohamed et je me suis occupé de toute la partie import :
+
+- l'import CSV des stages par un administrateur : lecture du fichier, conversion des dates, insertion en une seule transaction
+- l'import des entreprises dans la base
+
+Depuis le rendu, ce fork a aussi reçu des correctifs de sécurité : mots de passe hachés à l'inscription, imports réservés aux administrateurs et jetons CSRF sur les formulaires.

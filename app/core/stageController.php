@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (!defined('ROOT_DIR')) {
     define('ROOT_DIR', dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR);

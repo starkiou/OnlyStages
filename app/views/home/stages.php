@@ -13,7 +13,8 @@
         <div id="formAjout" class="cardStyle" style="display: none; margin-bottom: 20px; padding: 20px;">
             <h3>Ajouter un nouveau stage</h3>
             <form id="stageForm" method="POST" action="?url=stageController">
-                <input type="hidden" name="action" value="ajouter">            
+                <input type="hidden" name="action" value="ajouter">
+                <?php echo csrfField(); ?>            
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                     <div>
                         <label>Nom étudiant :</label>
@@ -305,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                        body: `action=supprimer&id=${stageId}`
+                        body: `action=supprimer&id=${stageId}&csrf_token=<?php echo $_SESSION['csrf_token']; ?>`
                     })
                     .then(response => response.json())
                     .then(data => {

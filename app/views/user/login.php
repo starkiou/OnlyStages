@@ -9,6 +9,7 @@
                 <?php unset($_SESSION['error_message']); ?>
             <?php endif;?>
             <form action="confirmLogin" method="post">
+                <?php echo csrfField(); ?>
                 <div class="form-group">
                     <label for="email">Adresse e-mail :</label>
                     <input type="email" id="email" name="email" required>

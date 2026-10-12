@@ -40,6 +40,7 @@
 
             const formData = new FormData();
             formData.append('csv_file', selectedFile);
+            formData.append('csrf_token', '<?php echo $_SESSION['csrf_token']; ?>');
 
             fetch('insertion', {
                 method: 'POST',
