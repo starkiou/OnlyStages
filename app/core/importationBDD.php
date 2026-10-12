@@ -34,11 +34,12 @@ if (!$stmt) {
 // Insérer chaque ligne de données
 foreach ($data as $index => $row) {
     $siren = $row['siren'] ?? '';
-    $ent_date_creation = $row['date_creation'] ?? '';
+    // Date et code postal absents sont enregistrés comme NULL
+    $ent_date_creation = !empty($row['date_creation']) ? $row['date_creation'] : null;
     $ent_activite = $row['activite_principale'] ?? '';
     $ent_categorie = $row['categorie_entreprise'] ?? '';
     $ent_adresse = $row['adresse'] ?? '';
-    $ent_code_postal = $row['code_postal'] ?? '';
+    $ent_code_postal = !empty($row['code_postal']) ? $row['code_postal'] : null;
     $ent_ville = $row['ville'] ?? '';
 
     // Vérification des données requises (SIREN est obligatoire)

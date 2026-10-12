@@ -61,8 +61,8 @@ Un outil de recherche d'entreprises et de gestion de stages pour étudiants, dé
 
 ### ✅ Comptes de test inclus (démo locale uniquement)
 
-- **Administrateur** : email `ADMIN@ADMIN`, mot de passe `admin`
-- **Enseignant** : email `ENS@ENS`, mot de passe `ens`
+- **Administrateur** : email `ADMIN@ADMIN`, mot de passe `ADMIN`
+- **Enseignant** : email `ENS@ENS`, mot de passe `ENS`
 - **Étudiant** : email `jean.dupont@etu.unicaen.fr`, mot de passe `etudiant`
 
 ## 🎮 Comment Utiliser

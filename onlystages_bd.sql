@@ -43,7 +43,7 @@ CREATE TABLE `ONL_COMPTE` (
 INSERT INTO `ONL_COMPTE` (`COM_ID`, `TYPE_COMPTE_ID`, `COM_NOM`, `COM_PRENOM`, `COM_MOT_DE_PASSE`, `COM_EMAIL`) VALUES
 (1, 3, 'ADMIN', 'ADMIN', '$2y$10$UyOkCBXLdqW.Xhjgx7rKyOYZkrOCrBJ78f2ISqQ4nh6eATzS7PLve', 'ADMIN@ADMIN'),
 (2, 2, 'ENS', 'ENS', '$2y$10$pS/1rMCZgf9Ng2qK4hFcH.na8JkY4mJzXKghvoqY4Pl2CnuC6ApvG', 'ENS@ENS'),
-(3, 1, 'Dupont', 'Jean', '$2y$10$87JuTLFF5jDZSf.6G3fqiO7VJgM8CimvR1Yu2q8hRo8xCg5hiKUEq', 'jean.dupont@etu.unicaen.fr'),
+(3, 1, 'Dupont', 'Jean', '$2y$10$Z11d9En5s2HQpAC3idMGjez7.YQOwlBkM1DeBL3EaWPf7lkWG2GWm', 'jean.dupont@etu.unicaen.fr'),
 (7, 1, 'Test', 'User', '$2y$10$kimtYP7FHUo1F2FJeu68Me.FMx7OA2F91wcqWhUnmJMuiOo5xYsQ6', 'test@test.com');
 
 -- --------------------------------------------------------
@@ -54,7 +54,7 @@ INSERT INTO `ONL_COMPTE` (`COM_ID`, `TYPE_COMPTE_ID`, `COM_NOM`, `COM_PRENOM`, `
 
 CREATE TABLE `ONL_ENTREPRISE` (
   `SIREN` int(10) NOT NULL,
-  `ENT_DATE_CREATION` int(6) NOT NULL,
+  `ENT_DATE_CREATION` date DEFAULT NULL,
   `ENT_ACTIVITE` varchar(6) NOT NULL,
   `ENT_CATEGORIE` varchar(3) NOT NULL,
   `ENT_ADRESSE` char(64) DEFAULT NULL,
