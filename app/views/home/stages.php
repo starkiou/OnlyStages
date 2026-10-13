@@ -15,67 +15,88 @@
             <form id="stageForm" method="POST" action="?url=stageController">
                 <input type="hidden" name="action" value="ajouter">
                 <?php echo csrfField(); ?>            
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <div>
-                        <label>Nom étudiant :</label>
-                        <input type="text" name="nom" required>
+                <fieldset class="stage-form-group">
+                    <legend>Étudiant</legend>
+                    <div class="stage-form-grid">
+                        <div>
+                            <label for="stage-nom">Nom</label>
+                            <input type="text" id="stage-nom" name="nom" required>
+                        </div>
+                        <div>
+                            <label for="stage-prenom">Prénom</label>
+                            <input type="text" id="stage-prenom" name="prenom" required>
+                        </div>
+                        <div>
+                            <label for="stage-datedebut">Date de début</label>
+                            <input type="date" id="stage-datedebut" name="datedebut" required>
+                        </div>
+                        <div>
+                            <label for="stage-datefin">Date de fin</label>
+                            <input type="date" id="stage-datefin" name="datefin" required>
+                        </div>
                     </div>
-                    <div>
-                        <label>Prénom étudiant :</label>
-                        <input type="text" name="prenom" required>
+                </fieldset>
+
+                <fieldset class="stage-form-group">
+                    <legend>Entreprise</legend>
+                    <div class="stage-form-grid">
+                        <div class="span-2">
+                            <label for="stage-entreprise">Nom de l'entreprise</label>
+                            <input type="text" id="stage-entreprise" name="entreprise" required>
+                        </div>
+                        <div class="span-2">
+                            <label for="stage-adresse">Adresse</label>
+                            <input type="text" id="stage-adresse" name="adresse" required>
+                        </div>
+                        <div>
+                            <label for="stage-cp">Code postal</label>
+                            <input type="text" id="stage-cp" name="cp" required>
+                        </div>
+                        <div>
+                            <label for="stage-ville">Ville</label>
+                            <input type="text" id="stage-ville" name="ville" required>
+                        </div>
+                        <div>
+                            <label for="stage-teletravail">Télétravail</label>
+                            <select id="stage-teletravail" name="teletravail" required>
+                                <option value="0">Non</option>
+                                <option value="1">Oui</option>
+                            </select>
+                        </div>
                     </div>
-                    <div>
-                        <label>Date début :</label>
-                        <input type="date" name="datedebut" required>
+                </fieldset>
+
+                <fieldset class="stage-form-group">
+                    <legend>Tuteur</legend>
+                    <div class="stage-form-grid">
+                        <div class="span-2">
+                            <label for="stage-tuteur">Nom du tuteur</label>
+                            <input type="text" id="stage-tuteur" name="tuteur" required>
+                        </div>
+                        <div>
+                            <label for="stage-mailtuteur">E-mail</label>
+                            <input type="email" id="stage-mailtuteur" name="mailtuteur" required>
+                        </div>
+                        <div>
+                            <label for="stage-teltuteur">Téléphone</label>
+                            <input type="tel" id="stage-teltuteur" name="teltuteur" required>
+                        </div>
                     </div>
-                    <div>
-                        <label>Date fin :</label>
-                        <input type="date" name="datefin" required>
+                </fieldset>
+
+                <fieldset class="stage-form-group">
+                    <legend>Mission</legend>
+                    <div class="stage-form-grid">
+                        <div class="span-2">
+                            <label for="stage-sujet">Sujet</label>
+                            <textarea id="stage-sujet" name="sujet" rows="3" required></textarea>
+                        </div>
+                        <div class="span-2">
+                            <label for="stage-taches">Tâches</label>
+                            <textarea id="stage-taches" name="taches" rows="3" required></textarea>
+                        </div>
                     </div>
-                    <div>
-                        <label>Télétravail :</label>
-                        <select name="teletravail" required>
-                            <option value="0">Non</option>
-                            <option value="1">Oui</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Entreprise :</label>
-                        <input type="text" name="entreprise" required>
-                    </div>
-                    <div>
-                        <label>Adresse :</label>
-                        <input type="text" name="adresse" required>
-                    </div>
-                    <div>
-                        <label>Code postal :</label>
-                        <input type="text" name="cp" required>
-                    </div>
-                    <div>
-                        <label>Ville :</label>
-                        <input type="text" name="ville" required>
-                    </div>
-                    <div>
-                        <label>Tuteur :</label>
-                        <input type="text" name="tuteur" required>
-                    </div>
-                    <div>
-                        <label>Email tuteur :</label>
-                        <input type="email" name="mailtuteur" required>
-                    </div>
-                    <div>
-                        <label>Téléphone tuteur :</label>
-                        <input type="tel" name="teltuteur" required>
-                    </div>
-                    <div style="grid-column: 1 / -1;">
-                        <label>Sujet :</label>
-                        <textarea name="sujet" rows="3" required></textarea>
-                    </div>
-                    <div style="grid-column: 1 / -1;">
-                        <label>Tâches :</label>
-                        <textarea name="taches" rows="3" required></textarea>
-                    </div>
-                </div>
+                </fieldset>
                 <div style="margin-top: 15px;">
                     <button type="submit" class="cardStyle" style="padding: 10px 20px; cursor: pointer; margin-right: 10px;">
                         Enregistrer
@@ -89,7 +110,7 @@
     <?php endif; ?>
 </div>
 
-<div id="stagesHeader" class="cardStyle stage-line">
+<div id="stagesHeader" class="cardStyle stage-line<?php echo (isset($_SESSION['typecompte']) && $_SESSION['typecompte'] == 3) ? ' with-actions' : ''; ?>">
     <span>Date début</span>
     <span>Date fin</span>
     <span>Télétravail</span>
@@ -258,13 +279,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const stages = <?php echo json_encode($stages, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>;
     const isAdmin = <?php echo isset($_SESSION['typecompte']) && $_SESSION['typecompte'] == 3 ? 'true' : 'false'; ?>;
 
+    // La base renvoie AAAA-MM-JJ : on affiche JJ/MM/AAAA
+    function formatDate(iso) {
+        const parts = (iso || '').split('-');
+        return parts.length === 3 ? `${parts[2]}/${parts[1]}/${parts[0]}` : (iso || '');
+    }
+
     stages.forEach(stage => {
         const clone = template.content.cloneNode(true);
         const stageDiv = clone.querySelector('.stage-line');
         
         stageDiv.setAttribute('data-stage-id', stage.LIS_ID);
-        clone.querySelector('.lis_datedebut').textContent = stage.LIS_DATEDEBUT || '';
-        clone.querySelector('.lis_datefin').textContent = stage.LIS_DATEFIN || '';
+        clone.querySelector('.lis_datedebut').textContent = formatDate(stage.LIS_DATEDEBUT);
+        clone.querySelector('.lis_datefin').textContent = formatDate(stage.LIS_DATEFIN);
         clone.querySelector('.lis_teletravail').textContent = stage.LIS_TELETRAVAIL == 1 ? 'Oui' : 'Non';
         clone.querySelector('.lis_entreprise').textContent = stage.LIS_ENTREPRISE || '';
         clone.querySelector('.lis_adresse').textContent = stage.LIS_ADRESSE || '';

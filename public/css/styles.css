@@ -931,3 +931,119 @@ footer {
         margin-bottom: 0.5rem;
     }
 }
+
+/* ── Page des stages : formulaire d'ajout ─────────────────────────────────── */
+
+/* Le formulaire occupe la largeur de la page au lieu d'une colonne étroite au centre */
+.stages-content-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+#formAjout {
+    width: 100%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#formAjout:hover {
+    transform: none;
+}
+
+.stage-form-group {
+    border: none;
+    padding: 0;
+    margin: 0 0 1.25rem 0;
+}
+
+.stage-form-group legend {
+    padding: 0;
+    margin-bottom: 0.75rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.stage-form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.stage-form-grid .span-2 {
+    grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+    .stage-form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .stage-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stage-form-grid .span-2 {
+        grid-column: auto;
+    }
+}
+
+/* ── Page des stages : liste ──────────────────────────────────────────────── */
+
+/* Colonnes dimensionnées pour que rien ne soit coupé : les textes longs passent à la ligne */
+.stage-line {
+    grid-template-columns:
+        6.5%
+        6.5%
+        6%
+        1.3fr
+        1.2fr
+        5%
+        7%
+        8%
+        1.5fr
+        8%
+        1.5fr
+        1.8fr;
+    align-items: center;
+    overflow-x: visible;
+}
+
+/* Une colonne « Actions » en plus pour les administrateurs */
+.stage-line:has(.actions),
+#stagesHeader.with-actions {
+    grid-template-columns:
+        6.5%
+        6.5%
+        6%
+        1.3fr
+        1.2fr
+        5%
+        7%
+        8%
+        1.5fr
+        8%
+        1.5fr
+        1.8fr
+        90px;
+}
+
+.stage-line span,
+#stagesHeader span {
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+    .stage-line,
+    .stage-line:has(.actions),
+    #stagesHeader.with-actions {
+        grid-template-columns: 1fr;
+    }
+}
