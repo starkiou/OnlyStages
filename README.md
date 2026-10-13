@@ -2,6 +2,25 @@
 
 Un outil de recherche d'entreprises et de gestion de stages pour étudiants, développé en PHP, HTML, CSS et JavaScript. Trouvez vos stages et entreprises facilement !
 
+## 📸 Aperçu
+
+Recherche d'entreprises par l'API de l'annuaire des entreprises :
+
+![Recherche d'entreprises](docs/entreprises.png)
+
+Liste des stages, vue par un administrateur :
+
+![Liste des stages](docs/liste-stages.png)
+
+<details>
+<summary>Formulaire d'ajout d'un stage</summary>
+
+![Formulaire d'ajout d'un stage](docs/formulaire-stage.png)
+
+</details>
+
+Les données affichées sont fictives.
+
 ## ✨ Fonctionnalités
 
 - 🔍 Recherche d'entreprises via API gouvernementale française
